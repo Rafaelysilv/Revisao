@@ -1,6 +1,14 @@
-async function consultar(){
+const input = document.getElementById("inpot")
+const h1 = document.getElementById("agaum")
+const btn = document.getElementById("butao")
 
-    const response = await fetch('https://viacep.com.br/ws/${55042080}/json')
-    console.log(response)
+
+async function consultar(){
+    const response = await fetch(`https://viacep.com.br/ws/${55042080}/json`)
+    
+    let endereco = await response.json()
+
+    console.log(endereco)
+    h1.textContent = `${endereco.logradouro}, ${endereco.bairro}, ${endereco.complemento}`
 }
 
